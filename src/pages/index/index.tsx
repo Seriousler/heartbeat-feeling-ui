@@ -1,6 +1,6 @@
 import { View, Text } from '@tarojs/components'
-import './index.scss'
 import { useEffect } from 'react'
+import './index.scss'
 
 export default function Index() {
 

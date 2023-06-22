@@ -1,8 +1,8 @@
-import React, {PropsWithChildren} from 'react'
+import {PropsWithChildren} from 'react'
 import { useLaunch } from '@tarojs/taro'
 import './app.scss'
 
-function App({ children }: PropsWithChildren) {
+function App({ children }: PropsWithChildren<Recordable>) {
 
   useLaunch(() => {
     console.log('App launched.')
