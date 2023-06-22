@@ -1,10 +1,10 @@
 import {PropsWithChildren} from 'react'
-import { useLaunch } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import './app.scss'
 
 function App({ children }: PropsWithChildren<Recordable>) {
 
-  useLaunch(() => {
+  Taro.useLaunch(() => {
     console.log('App launched.')
   })
 

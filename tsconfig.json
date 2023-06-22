@@ -20,7 +20,8 @@
     "resolveJsonModule": true,
     "typeRoots": [
       "node_modules/@types"
-    ]
+    ],
+    "types": ["@tarojs/taro"]
   },
   "include": ["./src", "./types"],
   "compileOnSave": false

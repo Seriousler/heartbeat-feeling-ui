@@ -12,18 +12,31 @@ declare module '*.scss';
 declare module '*.sass';
 declare module '*.styl';
 
-declare module '@tarojs/taro'
-// {
-//   // interface Taro {
-//   //   // 这里定义 Taro 对象的类型
-//   //   showToast(options: Taro.showToast.Option): void;
-//   // }
-//   const Taro: any;
-//   export default Taro;
-// }
+declare namespace NodeJS {
+  interface ProcessEnv {
+    TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq' | 'jd'
+  }
+}
 
-// declare module '@tarojs/components' {
-//   // 这里定义 @tarojs/components 组件库的类型
+declare module 'react/jsx-runtime' {
+	export const jsx: typeof React.createElement;
+  export const jsxs: typeof React.createElement;
+  export const Fragment: typeof React.Fragment;
+}
+
+declare module '@tarojs/taro' {
+  // interface Taro {
+  //   // 这里定义 Taro 对象的类型
+  //   showToast(options: Taro.showToast.Option): void;
+  //   useLaunch(): any
+  // }
+  const Taro: any;
+  export default Taro;
+}
+
+// declare module '@tarojs/components' 
+// {
+// 这里定义 @tarojs/components 组件库的类型
 //   export const View: any;
 //   export const Text: any;
 // }
@@ -40,20 +53,3 @@ declare module '@tarojs/taro'
 //   function render(element: React.ReactElement, container: Element | null): void;
 // }
 
-declare module 'react/jsx-runtime' {
-	export const jsx: typeof React.createElement;
-  export const jsxs: typeof React.createElement;
-  export const Fragment: typeof React.Fragment;
-}
-
-declare namespace NodeJS {
-  interface ProcessEnv {
-    TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq' | 'jd'
-  }
-}
-
-declare namespace NodeJS {
-  interface ProcessEnv {
-    TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq' | 'jd'
-  }
-}
