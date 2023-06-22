@@ -1,19 +1,16 @@
-/// <reference types="@tarojs/taro" />
 
-declare module '*.png';
-declare module '*.gif';
-declare module '*.jpg';
-declare module '*.jpeg';
-declare module '*.svg';
-declare module '*.css';
-declare module '*.less';
-declare module '*.scss';
-declare module '*.sass';
-declare module '*.styl';
+declare type Nullable<T> = T | null;
+declare type Recordable<T = any> = Record<string, T>;
+declare type ReadonlyRecordable<T = any> = {
+  readonly [key: string]: T;
+};
+declare type Indexable<T = any> = {
+  [key: string]: T;
+};
+declare type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
+};
 
-declare namespace NodeJS {
-  interface ProcessEnv {
-    TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq' | 'jd'
-  }
-}
+declare function parseInt(s: string | number, radix?: number): number;
 
+declare function parseFloat(string: string | number): number;

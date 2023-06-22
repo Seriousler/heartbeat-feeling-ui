@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react'
+import React, {PropsWithChildren} from 'react'
 import { useLaunch } from '@tarojs/taro'
 import './app.scss'
 

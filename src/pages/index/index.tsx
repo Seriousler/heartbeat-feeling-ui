@@ -1,10 +1,10 @@
 import { View, Text } from '@tarojs/components'
-import { useLoad } from '@tarojs/taro'
 import './index.scss'
+import { useEffect } from 'react'
 
 export default function Index() {
 
-  useLoad(() => {
+  useEffect(() => {
     console.log('Page loaded.')
   })
 
