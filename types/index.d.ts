@@ -24,15 +24,17 @@ declare module 'react/jsx-runtime' {
   export const Fragment: typeof React.Fragment;
 }
 
-declare module '@tarojs/taro' {
-  // interface Taro {
-  //   // 这里定义 Taro 对象的类型
-  //   showToast(options: Taro.showToast.Option): void;
-  //   useLaunch(): any
-  // }
-  const Taro: any;
-  export default Taro;
-}
+declare module '@tarojs/redux'
+declare module '@tarojs/taro'
+// {
+//   // interface Taro {
+//   //   // 这里定义 Taro 对象的类型
+//   //   showToast(options: Taro.showToast.Option): void;
+//   //   useLaunch(): any
+//   // }
+//   const Taro: any;
+//   export default Taro;
+// }
 
 // declare module '@tarojs/components' 
 // {

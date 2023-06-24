@@ -37,10 +37,6 @@
   "author": "",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
-    "@linaria/babel-preset": "^4.4.5",
-    "@linaria/core": "^4.2.10",
-    "@linaria/react": "^4.3.8",
-    "@linaria/webpack-loader": "^4.1.17",
     "@tarojs/components": "3.6.8",
     "@tarojs/helper": "3.6.8",
     "@tarojs/plugin-framework-react": "3.6.8",
@@ -53,11 +49,21 @@
     "@tarojs/plugin-platform-tt": "3.6.8",
     "@tarojs/plugin-platform-weapp": "3.6.8",
     "@tarojs/react": "3.6.8",
+    "@tarojs/redux": "^2.2.10",
+    "@tarojs/redux-h5": "^2.2.10",
     "@tarojs/runtime": "3.6.8",
     "@tarojs/shared": "3.6.8",
     "@tarojs/taro": "3.6.8",
+    "dayjs": "^1.11.8",
+    "dva-core": "^2.0.4",
+    "dva-loading": "^3.0.24",
+    "lodash": "^4.17.21",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-redux": "^8.1.1",
+    "redux": "^4.2.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",

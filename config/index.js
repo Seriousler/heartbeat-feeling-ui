@@ -51,6 +51,8 @@ const config = {
     "@/utils": path.resolve(__dirname, "..", "src/utils"),
     "@/assets": path.resolve(__dirname, "..", "src/assets"),
     "@/api": path.resolve(__dirname, "..", "src/api"),
+    "@/pages": path.resolve(__dirname, "..", "src/pages"),
+    "@/store": path.resolve(__dirname, "..", "src/store"),
     "@/project": path.resolve(__dirname, "..", "project.config.json"),
   },
   sass: {
@@ -111,15 +113,9 @@ const config = {
         },
       },
     },
-    // 自定义 Webpack 配置
+    enableSourceMap: process.env.NODE_ENV !== 'production',
+    // Webpack 链式配置
     webpackChain(chain, webpack) {
-      chain.module
-        .rule('script')
-        .use('linariaLoader')
-        .loader('@linaria/webpack-loader')
-        .options({
-          sourceMap: process.env.NODE_ENV !== 'production',
-        })
       if (process.env.NODE_ENV !== "development") {
         chain.mode("production");
         chain.optimization.minimize(true);
@@ -159,15 +155,9 @@ const config = {
         },
       },
     },
-    // 自定义 Webpack 配置
+    enableSourceMap: process.env.NODE_ENV !== 'production',
+    // Webpack 链式配置
     webpackChain(chain, webpack) {
-      chain.module
-        .rule('script')
-        .use('linariaLoader')
-        .loader('@linaria/webpack-loader')
-        .options({
-          sourceMap: process.env.NODE_ENV !== 'production',
-        })
       if (process.env.NODE_ENV !== "development") {
         chain.mode("production");
         chain.optimization.minimize(true);
