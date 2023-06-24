@@ -2,11 +2,12 @@ import {useEffect, PropsWithChildren} from 'react'
 import {useLaunch, useDidShow, useDidHide, useError} from '@tarojs/taro'
 import { Provider } from 'react-redux';
 import store from './store';
+import './styles/index.scss'
 import './app.scss'
 
 function App({ children }: PropsWithChildren<Recordable>) {
 
-  useEffect(() => {});
+  useEffect(() => {}, []);
 
   // onLaunch
   useLaunch(() => {

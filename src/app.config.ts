@@ -6,14 +6,22 @@ export default defineAppConfig({
     navigationBarTitleText: '微信接口功能演示',
     backgroundColor: '#eeeeee',
     backgroundTextStyle: 'light',
+    navigationStyle: 'custom'
   },
-  tabBar:{   
+  tabBar:{
     "backgroundColor": "#0f141a",
     "borderStyle": "white",
     "color": "#fff",
     "selectedColor": "#fff",
+    "position": 'top',
     "custom": true,
     "list": [
+      // {
+      //   "pagePath": "pages/index/index",
+      //   "text": ""
+      //   // "iconPath": 'assets/images/bottomNav/discover.png',
+      //   // "selectedIconPath": "assets/images/bottomNav/discover_active.png"
+      // },
       {
         "pagePath": "pages/recommend/index",
         "text": "推荐"

@@ -4,6 +4,8 @@ import { View, Text } from '@tarojs/components'
 import { useDispatch, useSelector } from 'react-redux'
 import {dayjs, lodash} from '@/utils'
 import type { ModelStates } from '@/store'
+import NavBar from '@/components/NavBar';
+import {AtIcon} from 'taro-ui'
 
 export default function Index() {
   const router = useRouter()
@@ -42,7 +44,9 @@ export default function Index() {
 
   return (
     <View className='index'>
-      <Text>Hello world!</Text>
+      <NavBar title={'navbar'}></NavBar>
+      <Text>Hello world222222222!</Text>
+      <AtIcon prefixClass='iconfont' value='iconguolv' size='30' color='#F00'></AtIcon>
     </View>
   )
 }

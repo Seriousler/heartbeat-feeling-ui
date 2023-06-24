@@ -29,6 +29,7 @@
       "@/api/*":["./src/api/*"],
       "@/pages/*":["./src/pages/*"],
       "@/store/*":["./src/store/*"],
+      "@/components/*":["./src/components/*"],
       "@/project/*":["./src/project/*"]
     },
   },

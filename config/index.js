@@ -53,6 +53,7 @@ const config = {
     "@/api": path.resolve(__dirname, "..", "src/api"),
     "@/pages": path.resolve(__dirname, "..", "src/pages"),
     "@/store": path.resolve(__dirname, "..", "src/store"),
+    "@/components": path.resolve(__dirname, "..", "src/components"),
     "@/project": path.resolve(__dirname, "..", "project.config.json"),
   },
   sass: {
@@ -142,6 +143,7 @@ const config = {
   h5: {
     publicPath: "/",
     staticDirectory: "static",
+    esnextModules: ['taro-ui'],
     postcss: {
       autoprefixer: {
         enable: true,
@@ -154,6 +156,12 @@ const config = {
           generateScopedName: "[name]__[local]___[hash:base64:5]",
         },
       },
+      url: {
+        enable: true,
+        config: {
+          limit: 10240 // 文件大小限制
+        }
+      }
     },
     enableSourceMap: process.env.NODE_ENV !== 'production',
     // Webpack 链式配置
