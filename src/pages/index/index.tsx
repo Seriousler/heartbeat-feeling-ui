@@ -46,7 +46,7 @@ export default function Index() {
     <View className='index'>
       <NavBar title={'navbar'}></NavBar>
       <Text>Hello world222222222!</Text>
-      <AtIcon prefixClass='iconfont' value='iconguolv' size='30' color='#F00'></AtIcon>
+      <AtIcon prefixClass='iconfont' value='icon-guolv' size='30' color='#F00'></AtIcon>
     </View>
   )
 }
