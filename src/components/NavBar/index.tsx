@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { AtNavBar } from 'taro-ui'
 
 export default function NavBar(props) {
-  console.log(222, View, props);
-  const [current, setCurrent] = useState(0)
+  const [current] = useState(0)
+  console.log('NavBar=====>', View, props, current);
   const clickHandle = (e) => {
     console.log('e========>', e);
   }

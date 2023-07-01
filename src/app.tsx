@@ -25,7 +25,9 @@ function App({ children }: PropsWithChildren<Recordable>) {
     console.log(error);
   });
   // children 是将要会渲染的页面
-  return <Provider store={store}>{children}</Provider>
+  return <Provider store={store}>
+    {children}
+  </Provider>
 }
 
 export default App
