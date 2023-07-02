@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import {dayjs, lodash} from '@/utils'
 import type { ModelStates } from '@/store'
 // import NavBar from '@/components/NavBar';
-import {AtIcon} from 'taro-ui'
+// import {AtIcon} from 'taro-ui'
 import TabBar from '@/components/TabBar';
-
+import IconFont from '@/components/Iconfont'
 
 export default function Index() {
   const router = useRouter()
@@ -48,7 +48,8 @@ export default function Index() {
     <View className='index'>
       <TabBar title={'navbar'}></TabBar>
       <Text>Hello world222222222!</Text>
-      <AtIcon prefixClass='iconfont' value='icon-guolv' size='30' color='#F00'></AtIcon>
+      <IconFont name="ziyuan" color={['#333', 'rgb(50, 124, 39)']} size={50} />
+      {/* <AtIcon prefixClass='iconfont' value='icon-guolv' size='30' color='#F00'></AtIcon> */}
     </View>
   )
 }

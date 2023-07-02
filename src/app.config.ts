@@ -1,5 +1,8 @@
+import { useGlobalIconFont } from '@/components/Iconfont/helper';
+
 export default defineAppConfig({
   pages: ['pages/index/index', 'pages/recommend/index', 'pages/specialArea/index'],
+  usingComponents: Object.assign(useGlobalIconFont()),
   window: {
     navigationBarBackgroundColor: '#0f141a',
     navigationBarTextStyle: 'white',
