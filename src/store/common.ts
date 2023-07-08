@@ -9,18 +9,18 @@ const commonModel: Model<any> = {
     mobile: Taro.getStorageSync('user_info')
       ? Taro.getStorageSync('user_info').mobile
       : '',
-    nickname: Taro.getStorageSync('user_info')
-      ? Taro.getStorageSync('user_info').nickname
-      : '',
-    new_user: Taro.getStorageSync('user_info')
-      ? Taro.getStorageSync('user_info').new_user
-      : '',
-    is_has_buy_card: Taro.getStorageSync('user_info')
-      ? Taro.getStorageSync('user_info').is_has_buy_card
-      : '',
-    erroMessage: Taro.getStorageSync('user_info')
-      ? Taro.getStorageSync('user_info').erroMessage
-      : '',
+    // nickname: Taro.getStorageSync('user_info')
+    //   ? Taro.getStorageSync('user_info').nickname
+    //   : '',
+    // new_user: Taro.getStorageSync('user_info')
+    //   ? Taro.getStorageSync('user_info').new_user
+    //   : '',
+    // is_has_buy_card: Taro.getStorageSync('user_info')
+    //   ? Taro.getStorageSync('user_info').is_has_buy_card
+    //   : '',
+    // erroMessage: Taro.getStorageSync('user_info')
+    //   ? Taro.getStorageSync('user_info').erroMessage
+    //   : '',
   },
   effects: {
     * pageInit({ payload }, { }) {

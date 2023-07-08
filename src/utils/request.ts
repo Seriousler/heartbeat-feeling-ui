@@ -3,7 +3,7 @@ import {interceptors} from './interceptors';
 
 export interface OptionsType {
   method: 'GET' | 'POST' | 'PUT';
-  data: any;
+  data?: any;
   url: string;
   noLoading?: boolean;
 }
@@ -14,7 +14,7 @@ interceptors.forEach((interceptorItem) => Taro.addInterceptor(interceptorItem));
 const noConsole = false
 
 export const request = (
-  options: OptionsType = { method: 'GET', data: {}, url: '', noLoading: false }
+  options: OptionsType = { method: 'POST', data: {}, url: '', noLoading: false }
 ) => {
   if (!options.noLoading) {
     Taro.showLoading({
@@ -31,9 +31,9 @@ export const request = (
   }
   return Taro.request({
     url: options.url,
-    data: {
-      ...options.data
-    },
+    // data: {
+    //   ...options.data
+    // },
     header: {
       'X-Token': Taro.getStorageSync('token'),
       'Content-Type': 'application/json'

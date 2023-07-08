@@ -30,7 +30,7 @@ $tag-primary: #d87182 !default;
 $tag-dark: #555 !default;
 
 /* methods */
-// 超出点点点
+// 超出省略号
 @mixin ddd {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -71,7 +71,7 @@ $tag-dark: #555 !default;
   font-size: $size;
   color: $color;
 }
-// flex 布局和 子元素 对其方式 flex-start | flex-end | center | space-between | space-around;
+// flex 布局和 子元素 对其方式 flex-start | flex-end | center | space-between | space-around | space-evenly;
 @mixin fj($type: space-between) {
   display: flex;
   justify-content: $type;

@@ -1,31 +1,37 @@
 import { useEffect, useState } from 'react'
 import { useDidHide, useDidShow, useLoad, usePullDownRefresh, useReady, useRouter, getEnv } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 import { useDispatch, useSelector } from 'react-redux'
-import {dayjs, lodash} from '@/utils'
+// import {dayjs, lodash} from '@/utils'
 import type { ModelStates } from '@/store'
 import NavBar from '@/components/NavBar';
 // import {AtIcon} from 'taro-ui'
 import TabBar from '@/components/TabBar';
 import Swiper from "@/components/Swiper";
 import Grid from "@/components/Grid";
-import IconFont from '@/components/Iconfont'
-import { AtButton, AtTabs, AtTabsPane } from 'taro-ui'
+// import IconFont from '@/components/Iconfont'
+import { AtButton, AtTabs, AtTabsPane, AtCard } from 'taro-ui'
 import './index.scss'
 import Drawer from '@/components/Drawer'
-import Button from '@/components/Button'
+import LayoutView from '@/components/LayoutView'
+import {getLogin, getUser} from "@/api";
+// import Button from '@/components/Button'
 
 export default function Index() {
   const [current, setCurrent] = useState(0)
   const [drawerShow, setDrawerShow] = useState(false)
   const router = useRouter()
   const state = useSelector<ModelStates>(state => state)
-  console.log(111, state, dayjs(), lodash.random());
+  // console.log(111, state, dayjs(), lodash.random());
   const common = useSelector<ModelStates>(state => state.common)
   const dispatch = useDispatch();
 
   // 可以使用所有的 React Hooks
   useEffect(() => {
+    getUser().then((res: any) => {
+      console.log(123, res)
+    })
+    getLogin()
     console.info('useEffect', { router })
   }, [])
 
@@ -55,9 +61,8 @@ export default function Index() {
   const clickHandle = (value) => {
     setCurrent(value)
   }
-
   return (
-    <View className='index'>
+    <LayoutView>
       <NavBar></NavBar>
       <TabBar title={'navbar'} tabList={[
         { title: '首页', iconPrefixClass:'icon', iconType: 'mihome_select' },
@@ -85,7 +90,93 @@ export default function Index() {
       }></Grid>
       <AtTabs className='index-tabs' current={current} tabList={tabList} onClick={clickHandle}>
         <AtTabsPane current={current} index={0} >
-          <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;' >标签页一的内容</View>
+          <View
+            className="hf-card"
+          >
+            <View>
+              <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+            </View>
+            <View>
+              这也是内容区 可以随意定义功能
+            </View>
+          </View>
+          <View
+            className="hf-card"
+          >
+            <View>
+              <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+            </View>
+            <View>
+              这也是内容区 可以随意定义功能
+            </View>
+          </View>
+          <View
+            className="hf-card"
+          >
+            <View>
+              <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+            </View>
+            <View>
+              这也是内容区 可以随意定义功能
+            </View>
+          </View>
+          <View
+            className="hf-card"
+          >
+            <View>
+              <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+            </View>
+            <View>
+              这也是内容区 可以随意定义功能
+            </View>
+          </View>
+          <View
+            className="hf-card"
+          >
+            <View>
+              <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+            </View>
+            <View>
+              这也是内容区 可以随意定义功能
+            </View>
+          </View>
+          <View
+            className="hf-card"
+          >
+            <View>
+              <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+            </View>
+            <View>
+              这也是内容区 可以随意定义功能
+            </View>
+          </View>
+          <View
+            className="hf-card"
+          >
+            <View>
+              <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+            </View>
+            <View>
+              这也是内容区 可以随意定义功能
+            </View>
+          </View>
+          <View
+            className="hf-card"
+          >
+            <View>
+              <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+            </View>
+            <View>
+              这也是内容区 可以随意定义功能
+            </View>
+          </View>
+          <AtCard
+            className="hf-card"
+            note='小Tips'
+            thumb='http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG'
+          >
+            这也是内容区 可以随意定义功能
+          </AtCard>
         </AtTabsPane>
         <AtTabsPane current={current} index={1}>
           <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页二的内容</View>
@@ -104,6 +195,6 @@ export default function Index() {
       <Drawer show={drawerShow} ></Drawer>
       {/* <IconFont name="ziyuan" color={['#333', 'rgb(50, 124, 39)']} size={50} /> */}
       {/* <AtIcon prefixClass='iconfont' value='icon-guolv' size='30' color='#F00'></AtIcon> */}
-    </View>
+    </LayoutView>
   )
 }

@@ -1,7 +1,7 @@
 // import accountModel from './accountModel';
-import commonModel from './common';
 import {indexModel} from "@/pages/index/model";
 import {dva} from '@/utils';
+import commonModel from './common';
 
 const store = dva.createApp({
   initialState: {},
@@ -9,7 +9,7 @@ const store = dva.createApp({
     // accountModel,
     commonModel,
     indexModel
-  ]  
+  ]
 }).getStore()
 
 export default store

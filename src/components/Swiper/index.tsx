@@ -1,4 +1,4 @@
-import {Swiper as TaroSwiper, SwiperItem, View} from '@tarojs/components'
+import {Swiper as TaroSwiper, SwiperItem, Image} from '@tarojs/components'
 import './index.scss';
 
 export default function Swiper() {
@@ -10,13 +10,14 @@ export default function Swiper() {
     indicatorDots
     autoplay>
     <SwiperItem>
-      <View className='demo-text-1'>1</View>
+      <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+      {/*<View className='demo-text-1'>1</View>*/}
     </SwiperItem>
     <SwiperItem>
-      <View className='demo-text-2'>2</View>
+      <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
     </SwiperItem>
     <SwiperItem>
-      <View className='demo-text-3'>3</View>
+      <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
     </SwiperItem>
   </TaroSwiper>
 }

@@ -76,18 +76,12 @@ const config = {
     host: "localhost",
     port: 9093,
     proxy: {
-      "/api": {
-        target: "https://xxx.com",
+      "/heartbeat-feeling-api": {
+        target: "http://8.130.141.94:8001/",
         // pathRewrite: {
-        //   '^/appv3/api': ''
+        //   '^/heartbeat-feeling-api': ''
         // }
-      },
-      "/api1": {
-        target: "https://xxx.com",
-        pathRewrite: {
-          "^/api1": "/",
-        },
-      },
+      }
     },
     headers: {
       "Access-Control-Allow-Origin": "*", // 允许跨域
