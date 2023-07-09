@@ -31,7 +31,7 @@ $tag-dark: #555 !default;
 
 /* methods */
 // 超出省略号
-@mixin ddd {
+@mixin el {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -41,6 +41,14 @@ $tag-dark: #555 !default;
   background-image: url($url);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+// 定位
+@mixin pos($position: relative, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
 }
 // 定位上下左右居中
 @mixin center {
@@ -72,7 +80,9 @@ $tag-dark: #555 !default;
   color: $color;
 }
 // flex 布局和 子元素 对其方式 flex-start | flex-end | center | space-between | space-around | space-evenly;
-@mixin fj($type: space-between) {
+@mixin fj($justifyContent: space-between, $flexDirection: row, $alignItems: center) {
   display: flex;
-  justify-content: $type;
+  justify-content: $justifyContent;
+  flex-direction: $flexDirection;
+  align-items: $alignItems;
 }

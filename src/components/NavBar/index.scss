@@ -1,2 +1,14 @@
 @import "~taro-ui/dist/style/components/nav-bar.scss";
 @import "~taro-ui/dist/style/components/icon.scss";
+
+.hf-nav-bar {
+  @include wh(100%, 100%);
+  @include pos(fixed, 0, auto, auto, 0);
+  @include fj(space-evenly, row, flex-end);
+  background: $color-brand !important;
+  z-index: 1000;
+  text-align: center;
+  .hf-nav-bar-left, .hf-nav-bar-right, .hf-nav-bar-center {margin-bottom: 20px;}
+  .hf-nav-bar-left, .hf-nav-bar-right {flex: 2; padding: 0 20px;}
+  .hf-nav-bar-center {flex: 5;}
+}

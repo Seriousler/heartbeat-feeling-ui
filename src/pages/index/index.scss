@@ -10,6 +10,6 @@
 }
 .hf-card {
   //display: flex;
-  //flex-direction: row;
+  // flex-direction: column;
   @include fj(row)
 }

@@ -31,7 +31,7 @@ export default function useNavInfo (): NavInfo {
   })
 
   useEffect(() => {
-    console.log('sssss', Taro.getSystemInfoSync())
+    // console.log('SystemInfo', Taro.getSystemInfoSync())
     const { statusBarHeight, screenWidth, screenHeight, windowHeight } = Taro.getSystemInfoSync()
     // 获取胶囊信息
     const { width, height, left, top, right } = Taro.getMenuButtonBoundingClientRect()

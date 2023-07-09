@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1688833711835" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2459" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"> 
+<defs>
+      <linearGradient id="Gradient1">
+        <stop class="stop1" offset="0%"/>
+        <stop class="stop2" offset="50%"/>
+        <stop class="stop3" offset="100%"/>
+      </linearGradient>
+      <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="50%" stop-color="black" stop-opacity="0"/>
+        <stop offset="100%" stop-color="blue"/>
+      </linearGradient>
+      <style type="text/css"><![CDATA[
+        #rect1 { fill: url(#Gradient1); }
+        .stop1 { stop-color: red; }
+        .stop2 { stop-color: black; stop-opacity: 0; }
+        .stop3 { stop-color: blue; }
+      ]]></style>
+  </defs>
+<path d="M940.78933333 344.02133333L591.78666667 72.58666667c-46.304-36.01066667-111.008-36.05333333-157.32266667 0L85.48266667 344.02133333c-31.44533333 24.448-49.46133333 61.312-49.46133334 101.12v402.15466667c0 70.656 57.46133333 128.11733333 128.11733334 128.11733333h697.984c70.656 0 128.11733333-57.46133333 128.11733333-128.11733333V445.14133333c0-39.808-18.016-76.672-49.45066667-101.12z m-390.95466666 398.72c0 20.26666667-16.43733333 36.704-36.704 36.704-20.26666667 0-36.704-16.43733333-36.704-36.704V498.304c0-20.26666667 16.43733333-36.704 36.704-36.704 20.26666667 0 36.704 16.43733333 36.704 36.704v244.43733333z" fill="url(#Gradient2)" p-id="2460"></path></svg>

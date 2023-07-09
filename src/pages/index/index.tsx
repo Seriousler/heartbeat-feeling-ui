@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useDidHide, useDidShow, useLoad, usePullDownRefresh, useReady, useRouter, getEnv } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,9 +15,11 @@ import './index.scss'
 import Drawer from '@/components/Drawer'
 import LayoutView from '@/components/LayoutView'
 import {getLogin, getUser} from "@/api";
+// import SvgIcon from '@/components/SvgIcon'
+// import IconFont from '@/components/Iconfont'
 // import Button from '@/components/Button'
 
-export default function Index() {
+const Index: FC = () => {
   const [current, setCurrent] = useState(0)
   const [drawerShow, setDrawerShow] = useState(false)
   const router = useRouter()
@@ -25,13 +27,13 @@ export default function Index() {
   // console.log(111, state, dayjs(), lodash.random());
   const common = useSelector<ModelStates>(state => state.common)
   const dispatch = useDispatch();
-
+  console.log('getObjectKeys', getObjectKeys(router));
   // 可以使用所有的 React Hooks
   useEffect(() => {
-    getUser().then((res: any) => {
-      console.log(123, res)
-    })
-    getLogin()
+    // getUser().then((res: any) => {
+    //   console.log(123, res)
+    // })
+    // getLogin()
     console.info('useEffect', { router })
   }, [])
 
@@ -65,10 +67,10 @@ export default function Index() {
     <LayoutView>
       <NavBar></NavBar>
       <TabBar title={'navbar'} tabList={[
-        { title: '首页', iconPrefixClass:'icon', iconType: 'mihome_select' },
-        { title: '动态', iconPrefixClass:'icon', iconType: 'ziyuan', },
-        { title: '会员', iconPrefixClass:'icon', iconType: 'mihome_select' },
-        { title: '消息', iconPrefixClass:'icon', iconType: 'mihome_select', text: '100', max: 99 },
+        { title: '首页', image: require('@/assets/images/my.png'), selectedImage: require('@/assets/svg/mihome_select.svg') },
+        { title: '动态', image: require('@/assets/images/my.png') },
+        { title: '会员', image: require('@/assets/images/my.png') },
+        { title: '消息', image: require('@/assets/images/my.png') },
         { title: '我的', image: require('@/assets/images/my.png') }
       ]}></TabBar>
       <Swiper></Swiper>
@@ -198,3 +200,5 @@ export default function Index() {
     </LayoutView>
   )
 }
+
+export default Index 

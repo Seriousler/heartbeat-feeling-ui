@@ -13,9 +13,9 @@ interceptors.forEach((interceptorItem) => Taro.addInterceptor(interceptorItem));
 // 输出日志信息
 const noConsole = false
 
-export const request = (
+export const request = <T>(
   options: OptionsType = { method: 'POST', data: {}, url: '', noLoading: false }
-) => {
+): Promise<T> => {
   if (!options.noLoading) {
     Taro.showLoading({
       title: '加载中'
