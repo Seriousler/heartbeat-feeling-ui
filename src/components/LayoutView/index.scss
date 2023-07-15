@@ -1,5 +1,26 @@
-#hf {
+#app {
   width: 100vw;
-  //z-index: -1000;
-  //background: transparent;
+  .content {
+    position: relative;
+    .drop-down {
+      @include wh(100%, auto);
+      @include pos(absolute, 0, auto, auto, auto);
+      transform: translateY(-100%);
+      overflow: hidden;
+      font-size: 30px;
+      text-align: center;
+    }
+    .pull-up {
+      @include wh(100%, auto);
+      @include fj(center, row, center);
+      //@include pos(absolute, auto, auto, 0, auto);
+      overflow: hidden;
+      font-size: 30px;
+      padding: 5px 0;
+    }
+    .down-text, .up-text {
+      margin-left: 20px;
+    }
+
+  }
 }

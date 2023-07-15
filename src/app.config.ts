@@ -9,7 +9,8 @@ export default defineAppConfig({
     navigationBarTitleText: '微信接口功能演示',
     backgroundColor: '#eeeeee',
     backgroundTextStyle: 'light',
-    navigationStyle: 'custom'
+    navigationStyle: 'custom',
+    enablePullDownRefresh: true // 开启下拉功能
   },
   tabBar:{
     "backgroundColor": "#0f141a",

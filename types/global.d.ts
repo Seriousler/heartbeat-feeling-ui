@@ -9,9 +9,14 @@ declare type Indexable<T = any> = {
 declare type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
 };
-declare function parseInt(s: string | number, radix?: number): number;
-declare function parseFloat(string: string | number): number;
+declare function parseInt(param: string | number, radix?: number): number;
+declare function parseFloat(param: string | number): number;
 declare function objectKeys<T extends object>(obj: T): (keyof T)[]
-// function getObjectKeys<T extends object>(obj: T): (keyof T)[] {
-//   return Object.keys(obj) as (keyof T)[];
-// }
+// 指定字段改为可选类型
+declare type PartialCustom<T, K extends keyof T> = {
+  [P in K]?: T[P];
+} & Omit<T, K>
+// 指定字段改为必选类型
+declare type RequiredCustom<T, K extends keyof T> = {
+  [P in K]-?: T[P];
+} & Omit<T, K>

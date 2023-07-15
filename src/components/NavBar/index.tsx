@@ -13,13 +13,13 @@ interface NavBarProps {
 const NavBar: FC<NavBarProps> = (props) => {
   const [current] = useState(0)
   const {appHeaderHeight} = useNavInfo()
-  console.log('NavBar=====>', View, props, current, appHeaderHeight);
+  // console.log('NavBar=====>', View, props, current, appHeaderHeight);
   // style={{height: appHeaderHeight + 'px'}}
-  const clickHandle = (e) => {
-    console.log('e========>', e);
-  }
-  console.log(123, <IconFont name="mihome_select" color={['#000']} size={50} />);
-  
+  // const clickHandle = (e) => {
+  //   console.log('e========>', e);
+  // }
+  // console.log(123, <IconFont name="mihome_select" color={['#000']} size={50} />);
+
   return (
     <View
       className='hf-nav-bar'
@@ -39,7 +39,7 @@ const NavBar: FC<NavBarProps> = (props) => {
       </View>
       <View className='hf-nav-bar-center'>heartbeat-feeling</View>
       <View className='hf-nav-bar-right'>
-        
+
       </View>
     </View>
   )

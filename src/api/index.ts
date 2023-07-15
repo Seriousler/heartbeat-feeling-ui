@@ -3,7 +3,7 @@ import Taro from "@tarojs/taro";
 
 // type TaroLogin = (option?: Option) => Promise<SuccessCallbackResult>
 export const getUser = () => Taro.request({
-  url: 'http://10.3.120.200:8001/heartbeat-feeling-api/user/pageList',
+  url: 'http://10.3.120.209:8001/heartbeat-feeling-api/user/pageList',
   data: {},
   method: 'POST'
 })
@@ -14,7 +14,7 @@ export const getLogin = () => Taro.login({
     if (res.code) {
       //发起网络请求
       Taro.request({
-        url: 'http://10.3.120.200:8001/heartbeat-feeling-api/wx/sns/jscode2session',
+        url: 'http://10.3.120.209:8001/heartbeat-feeling-api/wx/sns/jscode2session',
         data: {
           'js_code': res.code
         },
