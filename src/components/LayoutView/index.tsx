@@ -2,12 +2,12 @@ import {Fragment, PropsWithChildren, useState} from "react";
 import {Text, View} from "@tarojs/components";
 // import Taro from "@tarojs/taro";
 import { useNavInfo } from "@/hooks";
-import Taro, {usePullDownRefresh, useReachBottom} from "@tarojs/taro";
+import {usePullDownRefresh, useReachBottom} from "@tarojs/taro";
 import {AtActivityIndicator} from "taro-ui";
 import TabBar from "@/components/TabBar";
 import NavBar from "@/components/NavBar";
+// import {throttle} from "@/utils";
 import './index.scss'
-import {throttle} from "@/utils";
 
 export default function LayoutView(props) {
   const { children, reachBottom, pullDown }: PropsWithChildren<Recordable> = props

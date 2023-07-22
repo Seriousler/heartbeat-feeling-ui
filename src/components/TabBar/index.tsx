@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AtTabBar } from 'taro-ui';
-import './index.scss';
 import Taro from "@tarojs/taro";
+import './index.scss';
 
 enum pagePath {
   '/pages/index/index',

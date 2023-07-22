@@ -7,6 +7,7 @@ export default defineAppConfig({
     'pages/member/index',
     'pages/message/index',
     'pages/mine/index'],
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   usingComponents: Object.assign(useGlobalIconFont()),
   window: {
     navigationBarBackgroundColor: '#0f141a',
