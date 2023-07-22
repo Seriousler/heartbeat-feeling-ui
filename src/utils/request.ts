@@ -56,8 +56,7 @@ class Request {
   }
 
   static getApiList<T extends Recordable<Options>> (list: T): T {
-    !Object.keys(list).length return {}
-    return this.apiList
+    return !Object.keys(list).length ? {} : this.apiList
   }
 }
 const request = new Request()

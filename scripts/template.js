@@ -72,7 +72,7 @@ export const indexModel: Model<${capPirName}Model> = {
 `
 
 // type 模版
-const typeTep = `
+const typesTep = `
 /**
  * ${dirName}.props 参数类型
  *
@@ -98,5 +98,5 @@ fs.writeFileSync(`index.scss`, scssTep); // scss
 fs.writeFileSync('index.config.ts', configTep); // config
 fs.writeFileSync('service.ts', serviceTep); // service
 fs.writeFileSync('model.ts', modelTep); // model
-fs.writeFileSync(`type.ts`, typeTep); // interface
+fs.writeFileSync(`types.ts`, typesTep); // interface
 process.exit(0);
