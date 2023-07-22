@@ -12,47 +12,49 @@ import {throttle} from "@/utils";
 export default function LayoutView(props) {
   const { children, reachBottom, pullDown }: PropsWithChildren<Recordable> = props
   const {appHeaderHeight} = useNavInfo()
-  const [showPullUp, setShowPullUp] = useState({height: 0})
-  const [showDropDown, setShowDropDown] = useState('block')
+  const showStyle = {height: 'auto'}
+  const hideStyle = {height: 0}
+  const [showPullUp, setShowPullUp] = useState<{height: number | string}>(hideStyle)
+  const [showDropDown, setShowDropDown] = useState<{height: number | string}>(hideStyle)
   const [upText] = useState('加载中...')
   const [downText] = useState('下拉刷新...')
 
   usePullDownRefresh(async () => {
     console.log('onPullDownRefresh')
-    setShowDropDown('block')
-    // if (pullDown) {
-    //   try {
-    //     await pullDown()
-    //   } finally {
-    //     setShowDropDown('none')
-    //   }
-    // } else {
-    //   setTimeout(function () {
-    //     setShowDropDown('none')
-    //   }, 2000)
-    //   window.clearTimeout()
-    // }
+    setShowDropDown(showStyle)
+    if (pullDown) {
+      try {
+        await pullDown()
+      } finally {
+        setShowDropDown(hideStyle)
+      }
+    } else {
+      const timer = setTimeout(function () {
+        setShowDropDown(hideStyle)
+        window.clearTimeout(timer)
+      }, 2000)
+    }
   })
   useReachBottom(async () => {
-    setShowPullUp('block')
-    // if (reachBottom) {
-    //   try {
-    //     await reachBottom()
-    //   } finally {
-    //     setShowPullUp('none')
-    //   }
-    // } else {
-    //   setTimeout(function () {
-    //     setShowPullUp('none')
-    //   }, 2000)
-    //   window.clearTimeout()
-    // }
+    setShowPullUp(showStyle)
+    if (reachBottom) {
+      try {
+        await reachBottom()
+      } finally {
+        setShowPullUp(hideStyle)
+      }
+    } else {
+      const timer = setTimeout(function () {
+        setShowPullUp(hideStyle)
+        window.clearTimeout(timer)
+      }, 2000)
+    }
   })
   return (
     <View id='app' style={{paddingTop: appHeaderHeight + 'px'}}>
       <NavBar></NavBar>
       <View className='content' style={{paddingBottom: '70px'}}>
-        <View className='drop-down' style={{display: showDropDown}}>
+        <View className='drop-down' style={showDropDown}>
           <Text className='down-text'>{downText}</Text>
         </View>
         <Fragment>{children}</Fragment>
