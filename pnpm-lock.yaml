@@ -146,8 +146,8 @@ devDependencies:
     specifier: ^7.8.2
     version: registry.npmmirror.com/eslint-plugin-react@7.8.2(eslint@8.12.0)
   eslint-plugin-react-hooks:
-    specifier: 5.0.0-canary-9377e1010-20230712
-    version: registry.npmmirror.com/eslint-plugin-react-hooks@5.0.0-canary-9377e1010-20230712(eslint@8.12.0)
+    specifier: ^4.2.0
+    version: registry.npmmirror.com/eslint-plugin-react-hooks@4.2.0(eslint@8.12.0)
   postcss:
     specifier: ^8.4.18
     version: registry.npmmirror.com/postcss@8.4.18
@@ -9738,14 +9738,14 @@ packages:
       - supports-color
     dev: true
 
-  registry.npmmirror.com/eslint-plugin-react-hooks@5.0.0-canary-9377e1010-20230712(eslint@8.12.0):
-    resolution: {integrity: sha512-LCfYTHWz3O/hohhj0yrN3LmJl7t6TReeIF0ZLjxG3XqAGMIk6qU7+D+zVKGnOdhTzEInuKnYh+GlZYGWVkvjww==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-5.0.0-canary-9377e1010-20230712.tgz}
-    id: registry.npmmirror.com/eslint-plugin-react-hooks/5.0.0-canary-9377e1010-20230712
+  registry.npmmirror.com/eslint-plugin-react-hooks@4.2.0(eslint@8.12.0):
+    resolution: {integrity: sha512-623WEiZJqxR7VdxFCKLI6d6LLpwJkGPYKODnkH3D7WpOG5KM8yWueBd8TLsNAetEJNF5iJmolaAKO3F8yzyVBQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz}
+    id: registry.npmmirror.com/eslint-plugin-react-hooks/4.2.0
     name: eslint-plugin-react-hooks
-    version: 5.0.0-canary-9377e1010-20230712
+    version: 4.2.0
     engines: {node: '>=10'}
     peerDependencies:
-      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
     dependencies:
       eslint: registry.npmmirror.com/eslint@8.12.0
     dev: true

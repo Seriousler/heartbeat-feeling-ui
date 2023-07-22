@@ -11,7 +11,7 @@ import Grid from "@/components/Grid";
 import { AtTabs, AtTabsPane, AtAvatar } from 'taro-ui'
 import LayoutView from '@/components/LayoutView'
 // import ScrollingLoading from '@/components/ScrollingLoading'
-import {getLogin, getUser} from "@/api";
+import {api} from "@/api";
 // import {getObjectKeys} from "@/utils";
 import './index.scss'
 // import Drawer from '@/components/Drawer'
@@ -31,17 +31,17 @@ const Index: FC = () => {
   // console.log('getObjectKeys', getObjectKeys(router));
   // 可以使用所有的 React Hooks
   useEffect(() => {
-    getUser().then((res: any) => {
-      console.log('res', res)
-    })
-    getLogin()
-    console.info('useEffect', { router })
+    // getUser().then((res: any) => {
+    //   console.log('res', res)
+    // })
+    // getLogin()
+    console.info('useEffect', { router, api })
   }, [])
 
   useLoad(() => {
     console.log('Page loaded.', {
-      state,
-      common,
+      // state,
+      // common,
       env: getEnv(),
     })
     dispatch({

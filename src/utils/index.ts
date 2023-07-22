@@ -1,6 +1,6 @@
 export * from './dva'
 export * from './request'
-export * from './interceptors'
+// export * from './interceptors'
 export * from './objectUtils'
 export * from './commonUtils'
 // export * from './stringUtils'
