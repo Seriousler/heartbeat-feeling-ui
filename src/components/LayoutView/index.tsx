@@ -6,8 +6,8 @@ import {usePullDownRefresh, useReachBottom} from "@tarojs/taro";
 import {AtActivityIndicator} from "taro-ui";
 import TabBar from "@/components/TabBar";
 import NavBar from "@/components/NavBar";
+// import {throttle} from "@/utils";
 import './index.scss'
-import {throttle} from "@/utils";
 
 export default function LayoutView(props) {
   const { children, reachBottom, pullDown }: PropsWithChildren<Recordable> = props
@@ -50,6 +50,7 @@ export default function LayoutView(props) {
       }, 2000)
     }
   })
+
   return (
     <View id='app' style={{paddingTop: appHeaderHeight + 'px'}}>
       <NavBar></NavBar>
@@ -63,13 +64,15 @@ export default function LayoutView(props) {
           <Text className='up-text'>{upText}</Text>
         </View>
       </View>
-      <TabBar title='tabbar' tabList={[
-        { title: '首页', image: require('@/assets/images/my.png'), selectedImage: require('@/assets/svg/mihome_select.svg') },
-        { title: '动态', image: require('@/assets/images/my.png') },
-        { title: '会员', image: require('@/assets/images/my.png') },
-        { title: '消息', image: require('@/assets/images/my.png') },
-        { title: '我的', image: require('@/assets/images/my.png') }
-      ]}></TabBar>
+      <TabBar
+        title='tabbar'
+        tabList={[
+          { title: '首页', image: require('@/assets/images/my.png'), selectedImage: require('@/assets/svg/mihome_select.svg') },
+          { title: '动态', image: require('@/assets/images/my.png') },
+          { title: '会员', image: require('@/assets/images/my.png') },
+          { title: '消息', image: require('@/assets/images/my.png') },
+          { title: '我的', image: require('@/assets/images/my.png') }
+        ]}></TabBar>
     </View>
   )
 }

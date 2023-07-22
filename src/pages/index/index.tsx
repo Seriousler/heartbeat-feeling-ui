@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { useDidHide, useDidShow, useLoad, usePullDownRefresh, useReady, useRouter, getEnv } from '@tarojs/taro'
-import { View, Image } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { useDispatch, useSelector } from 'react-redux'
 // import {dayjs, lodash} from '@/utils'
 import type { ModelStates } from '@/store'
@@ -12,7 +12,7 @@ import { AtTabs, AtTabsPane, AtAvatar } from 'taro-ui'
 import LayoutView from '@/components/LayoutView'
 // import ScrollingLoading from '@/components/ScrollingLoading'
 import {getLogin, getUser} from "@/api";
-import {getObjectKeys} from "@/utils";
+// import {getObjectKeys} from "@/utils";
 import './index.scss'
 // import Drawer from '@/components/Drawer'
 // import SvgIcon from '@/components/SvgIcon'
@@ -20,13 +20,13 @@ import './index.scss'
 // import Button from '@/components/Button'
 
 const Index: FC = () => {
-  const [current, setCurrent] = useState(0)
-  const [tabData, setTabData] = useState([1, 2, 3, 4, 5, 6])
+  const [current, setCurrent] = useState<number>(0)
+  const [tabData] = useState([1, 2, 3, 4, 5, 6])
   // const [drawerShow, setDrawerShow] = useState(false)
   const router = useRouter()
-  const state = useSelector<ModelStates>(state => state)
+  // const state = useSelector<ModelStates>((state: ModelStates) => state)
   // console.log(111, state, dayjs(), lodash.random());
-  const common = useSelector<ModelStates>(state => state.common)
+  // const common = useSelector<ModelStates>((state: ModelStates)  => state.common)
   const dispatch = useDispatch();
   // console.log('getObjectKeys', getObjectKeys(router));
   // 可以使用所有的 React Hooks
@@ -66,7 +66,7 @@ const Index: FC = () => {
   return (
     <LayoutView>
       <Swiper></Swiper>
-      <Grid mode={'square'} hasBorder={false} data={
+      <Grid mode='square' hasBorder={false} data={
         [
           {
             image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',

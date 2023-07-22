@@ -1,5 +1,6 @@
 const path = require('path')
-import TerserPlugin from "terser-webpack-plugin"
+const TerserPlugin = require('terser-webpack-plugin')
+// import TerserPlugin from "terser-webpack-plugin"
 
 const config = {
   projectName: "heartbeat-feeling-ui",

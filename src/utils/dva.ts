@@ -1,5 +1,5 @@
 // import Taro, {hideLoading, showToast, getEnv} from '@tarojs/taro';
-import { create } from 'dva-core';
+import { createStore } from 'dva-core';
 import { createLogger } from 'redux-logger';
 import createLoading from 'dva-loading';
 
@@ -7,6 +7,7 @@ export interface Dva {
   createApp: (opt: any) => any
   getDispatch: () => any
 }
+
 let app: any;
 let store: any;
 let dispatch: any;
@@ -19,7 +20,7 @@ export const dva: Dva = {
     if (opt.enableLog) {
         opt.onAction.push(createLogger())
     }
-    app = create(opt)
+    app = createStore(opt)
     app.use(createLoading())
     // 注入model
     if (!registered) {
