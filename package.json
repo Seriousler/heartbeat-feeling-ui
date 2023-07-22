@@ -27,6 +27,8 @@
     "dev:qq": "set NODE_OPTIONS=--openssl-legacy-provider && npm run build:qq -- --watch",
     "dev:jd": "set NODE_OPTIONS=--openssl-legacy-provider && npm run build:jd -- --watch",
     "dev:quickapp": "set NODE_OPTIONS=--openssl-legacy-provider && npm run build:quickapp -- --watch",
+    "tep": "node scripts/template.js",
+    "com": "node scripts/component.js",
     "cz": "git-cz"
   },
   "browserslist": [

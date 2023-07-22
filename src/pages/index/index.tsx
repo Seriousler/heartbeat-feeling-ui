@@ -20,7 +20,7 @@ import './index.scss'
 // import Button from '@/components/Button'
 
 const Index: FC = () => {
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState<number>(0)
   const [tabData, setTabData] = useState([1, 2, 3, 4, 5, 6])
   // const [drawerShow, setDrawerShow] = useState(false)
   const router = useRouter()
@@ -66,7 +66,7 @@ const Index: FC = () => {
   return (
     <LayoutView>
       <Swiper></Swiper>
-      <Grid mode={'square'} hasBorder={false} data={
+      <Grid mode='square' hasBorder={false} data={
         [
           {
             image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',

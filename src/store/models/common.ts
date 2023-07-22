@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro';
-import type { Model } from './types'
+import type { Model } from '@/store/types'
 
 const commonModel: Model<any> = {
   namespace: 'common',

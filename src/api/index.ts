@@ -1,4 +1,5 @@
 // import {request} from "@/utils";
+import {Options} from "@/utils";
 import Taro from "@tarojs/taro";
 
 // type TaroLogin = (option?: Option) => Promise<SuccessCallbackResult>
@@ -25,6 +26,10 @@ export const getLogin = () => Taro.login({
     }
   }
 })
+
+export const apiList: Recordable<Options> = {
+  login: {url: '/wx/sns/jscode2session', method: 'POST'}
+}
 
 // cgiBinToken.setAppid("wx208da25e78289c61");
 // cgiBinToken.setSecret("5c3b4db13173472e966eb55eabc8dde6");

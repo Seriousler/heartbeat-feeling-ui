@@ -33,6 +33,6 @@
       "@/project/*":["./src/project/*"]
     },
   },
-  "include": ["./src", "./types"],
+  "include": ["./src", "./types", "./scripts"],
   "compileOnSave": false
 }

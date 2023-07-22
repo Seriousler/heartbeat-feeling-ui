@@ -2,7 +2,7 @@ import {Fragment, PropsWithChildren, useState} from "react";
 import {Text, View} from "@tarojs/components";
 // import Taro from "@tarojs/taro";
 import { useNavInfo } from "@/hooks";
-import {usePullDownRefresh, useReachBottom} from "@tarojs/taro";
+import Taro, {usePullDownRefresh, useReachBottom} from "@tarojs/taro";
 import {AtActivityIndicator} from "taro-ui";
 import TabBar from "@/components/TabBar";
 import NavBar from "@/components/NavBar";
@@ -48,6 +48,7 @@ export default function LayoutView(props) {
     //   window.clearTimeout()
     // }
   })
+
   return (
     <View id='app' style={{paddingTop: appHeaderHeight + 'px'}}>
       <NavBar></NavBar>
@@ -61,13 +62,15 @@ export default function LayoutView(props) {
           <Text className='up-text'>{upText}</Text>
         </View>
       </View>
-      <TabBar title='tabbar' tabList={[
-        { title: '首页', image: require('@/assets/images/my.png'), selectedImage: require('@/assets/svg/mihome_select.svg') },
-        { title: '动态', image: require('@/assets/images/my.png') },
-        { title: '会员', image: require('@/assets/images/my.png') },
-        { title: '消息', image: require('@/assets/images/my.png') },
-        { title: '我的', image: require('@/assets/images/my.png') }
-      ]}></TabBar>
+      <TabBar
+        title='tabbar'
+        tabList={[
+          { title: '首页', image: require('@/assets/images/my.png'), selectedImage: require('@/assets/svg/mihome_select.svg') },
+          { title: '动态', image: require('@/assets/images/my.png') },
+          { title: '会员', image: require('@/assets/images/my.png') },
+          { title: '消息', image: require('@/assets/images/my.png') },
+          { title: '我的', image: require('@/assets/images/my.png') }
+        ]}></TabBar>
     </View>
   )
 }
