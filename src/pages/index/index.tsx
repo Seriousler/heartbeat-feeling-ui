@@ -35,6 +35,7 @@ const Index: FC = () => {
     //   console.log('res', res)
     // })
     // getLogin()
+    api.login()
     console.info('useEffect', { router, api })
   }, [])
 

@@ -2,7 +2,8 @@
 // import {OptionsType, Api} from "@/utils";
 // import {OptionsType, api as Api} from "@/utils";
 // import {OptionsType, RequestClass} from "@/utils";
-import {RequestClass, OptionsType} from "@/utils/index";
+import { MAIN_HOST, MAIN_PREFIX } from "@/config";
+import {Request, Option} from "@/utils";
 // import Taro from "@tarojs/taro";
 
 // type TaroLogin = (option?: Option) => Promise<SuccessCallbackResult>
@@ -30,14 +31,20 @@ import {RequestClass, OptionsType} from "@/utils/index";
 //   }
 // })
 
-export const apiCommonParams = {}
+// 请求域名+服务前缀
+export const baseUrl = `${MAIN_HOST}${MAIN_PREFIX}`
 
-export const apiList: Recordable<OptionsType> = {
-  login: {url: '/wx/sns/jscode2session', method: 'POST', loginEnable: true},
-  pageList: {url: '/user/pageList', method: 'POST', data: {}}
+// 请求公共参数
+export const apiCommonData = {}
+
+// 请求配置列表
+export const apiList: Recordable<Partial<Option>> = {
+  login: {url: `${baseUrl}/wx/sns/jscode2session`, method: 'POST', loginEnable: true},
+  pageList: {url: `${baseUrl}/user/pageList`, method: 'POST', data: {}}
 }
 
-export const api = RequestClass.getApiList(apiList)
+// 请求方法列表
+export const api = Request.getApiList(apiCommonData, apiList)
 // console.log(123, utils.RequestClass);
 
 // export const api = 123
