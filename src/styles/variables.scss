@@ -1,3 +1,5 @@
+@import '~taro-ui/dist/style/index.scss';
+
 /* colors */
 $color-brand: #f1836f;
 $color-brand-light: #f39b8b;
@@ -29,6 +31,14 @@ $bg-color-panel: #ec5d75 !default;
 $tag-primary: #d87182 !default;
 $tag-dark: #555 !default;
 
+/* font-size */
+$font-size-xs: 10px;
+$font-size-sm: 12px;
+$font-size-base: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+$font-size-xxl: 20px;
+
 /* methods */
 // 超出省略号
 @mixin el {
@@ -51,7 +61,7 @@ $tag-dark: #555 !default;
   left: $left;
 }
 // 定位上下左右居中
-@mixin center {
+@mixin ctl {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -75,9 +85,10 @@ $tag-dark: #555 !default;
   height: $height;
 }
 // 字体大小，颜色
-@mixin sc($size, $color) {
+@mixin fcw($size: 16px, $color: #000, $weight: normal) {
   font-size: $size;
   color: $color;
+  font-weight: $weight;
 }
 // flex 布局和 子元素 对其方式 flex-start | flex-end | center | space-between | space-around | space-evenly;
 @mixin fj($justifyContent: space-between, $flexDirection: row, $alignItems: center) {

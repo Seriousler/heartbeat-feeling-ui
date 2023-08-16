@@ -1,6 +1,7 @@
 import { useGlobalIconFont } from '@/components/Iconfont/helper';
 
 export default defineAppConfig({
+  // pages: ['pages/index/index'],
   pages: [
     'pages/index/index',
     'pages/dynamic/index',
@@ -9,6 +10,8 @@ export default defineAppConfig({
     'pages/mine/index'],
   // eslint-disable-next-line react-hooks/rules-of-hooks
   usingComponents: Object.assign(useGlobalIconFont()),
+  sitemapLocation: "sitemap.json",
+  lazyCodeLoading: 'requiredComponents', // 按需加载
   window: {
     navigationBarBackgroundColor: '#0f141a',
     navigationBarTextStyle: 'white',
@@ -23,15 +26,15 @@ export default defineAppConfig({
     "borderStyle": "white",
     "color": "#fff",
     "selectedColor": "#fff",
-    "position": 'top',
+    "position": 'bottom',
     "custom": true,
     "list": [
-      // {
-      //   "pagePath": "pages/index/index",
-      //   "text": ""
-      //   // "iconPath": 'assets/images/bottomNav/discover.png',
-      //   // "selectedIconPath": "assets/images/bottomNav/discover_active.png"
-      // },
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+        // "iconPath": 'assets/images/bottomNav/discover.png',
+        // "selectedIconPath": "assets/images/bottomNav/discover_active.png"
+      },
       {
         "pagePath": "pages/dynamic/index",
         "text": "动态"
@@ -49,5 +52,29 @@ export default defineAppConfig({
         "text": "我的"
       }
     ]
-  }
+  },
+  //  分包路径
+  // subPackages:[
+  //   {
+  //     "root": "pages/dynamic/",
+  //     "pages": [
+  //       "index"
+  //     ]
+  //   }, {
+  //     "root": "pages/member/",
+  //     "pages": [
+  //       "index"
+  //     ]
+  //   }, {
+  //     "root": "pages/message/",
+  //     "pages": [
+  //       "index"
+  //     ]
+  //   }, {
+  //     "root": "pages/mine/",
+  //     "pages": [
+  //       "index"
+  //     ]
+  //   }
+  // ]
 })

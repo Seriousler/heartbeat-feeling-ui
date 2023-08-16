@@ -78,7 +78,7 @@ const config = {
     port: 9093,
     proxy: {
       "/heartbeat-feeling-api": {
-        target: "http://10.3.120.209:8001/",
+        target: "http://127.0.0.1:8001/",
         pathRewrite: {
           '^/heartbeat-feeling-api': ''
         }

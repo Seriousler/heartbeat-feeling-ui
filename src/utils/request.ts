@@ -1,9 +1,9 @@
 import Taro from '@tarojs/taro';
-import {MAIN_HOST, MAIN_PREFIX} from "@/config";
 import { isBoolean, isNumber, isObject, isString } from 'lodash';
+// import {MAIN_HOST, MAIN_PREFIX} from "@/config";
 // import {interceptors} from './interceptors';
 
-export interface Option <T = any, U extends string | TaroGeneral.IAnyObject | ArrayBuffer = any | any > {
+export interface Option <U extends string | TaroGeneral.IAnyObject | ArrayBuffer = any > {
   /** 开发者服务器接口地址 */
   url: string
   /** 请求的参数 */
@@ -21,9 +21,9 @@ export interface Option <T = any, U extends string | TaroGeneral.IAnyObject | Ar
   /** HTTP 请求方法
    * @default GET
    */
-  method?: keyof Method
+  method?: string
   /** 返回的数据格式 */
-  dataType?: keyof DataType | string
+  dataType?: keyof string
   /** 响应的数据类型 */
   responseType?: keyof ResponseType
   /** 开启 http2
@@ -56,7 +56,7 @@ export interface Option <T = any, U extends string | TaroGeneral.IAnyObject | Ar
    */
   enableChunked?: boolean
   /** 接口调用成功的回调函数 */
-  success?: (result: SuccessCallbackResult<ArrayBuffer>) => void
+  success?: (result: Recordable<ArrayBuffer>) => void
   /** 接口调用失败的回调函数 */
   fail?: (res: TaroGeneral.CallbackResult) => void
   /** 接口调用结束的回调函数（调用成功、失败都会执行） */
@@ -74,12 +74,12 @@ export interface Option <T = any, U extends string | TaroGeneral.IAnyObject | Ar
    * @default "same-origin"
    * @supported h5
    */
-  mode?: keyof CorsMode
+  mode?: string
   /** 设置是否携带 Cookie
    * @default "omit"
    * @supported h5
    */
-  credentials?: keyof Credentials
+  credentials?: string
   /** 设置缓存模式
    * @default "default"
    * @supported h5
@@ -226,8 +226,8 @@ export interface Option <T = any, U extends string | TaroGeneral.IAnyObject | Ar
 // // 输出日志信息
 // // const noConsole = false
 
-type Api = (() => Promise<any>) | {}
-
+export type Api = Recordable<(...arg: any[]) => Promise<any>>
+// type Api = Recordable<Partial<Option>>
 // 请求实例
 export class Request {
   static isLogin: boolean = false
@@ -235,32 +235,19 @@ export class Request {
   static commonData: Recordable = {}
 
   // 微信登录
-  static async login(): Promise<void> {
+  static async login(url, data): Promise<void> {
     this.isLogin = true
-    return new Promise(async (resolve: (arg?: any) => void, reject): Promise<void> => {
-      // 获取code
-      const { code } = await Taro.login()
-
-      // 登录
-      const { data } = await Taro.request({
-        url: `${MAIN_HOST}${MAIN_PREFIX}${apiList.login}`,
-        data: { js_code: code }
-      })
-
-      if (data.code !== 0 || !data.data || !data.data.token) {
-        reject()
-        return
-      }
-
-      Taro.setStorageSync('token', data.data.token)
-      this.isLogin = false
-      resolve()
+    const { code } = await Taro.login()
+    return Taro.request({
+      url,
+      data: { js_code: code, ...data },
+      method: 'POST'
     })
   }
 
   // 创建请求配置
-  static createOptions (opt: Partial<Option>) {
-    const {url, data, header, method, timeout, dataType, responseType} = opt
+  static createOptions (opt: Partial<Option>, data: Recordable) {
+    const {url, header, method, timeout, dataType, responseType} = opt
     return {
       url,
       data: {...this.commonData, ...data},
@@ -273,21 +260,19 @@ export class Request {
   }
 
   // 创建请求
-  static createRequest (opt: Partial<Option> & {loginEnable?: boolean}): () => Promise<any> {
-    const {loginEnable} = opt
+  static createRequest (opt: Partial<Option> & {loginEnable?: boolean}): (...arg: any[]) => Promise<any> {
+    const {loginEnable, url} = opt
     if (isBoolean(loginEnable) && loginEnable) {
-      // this.login()
+      return (data) => this.login(url, data)
     } else {
-    }
-    return () => {
-      return new Promise(() => Taro.request(this.createOptions(opt)))
+      return (data) => Taro.request(this.createOptions(opt, data))
     }
   }
 
-  // 创建请求
-  static async request<T extends Option> (opt: T): Promise<void> {
-    const {data} = Taro.request(opt)
-  }
+  // // 创建请求
+  // static async request<T extends Option> (opt: T): Promise<void> {
+  //   const {data} = Taro.request(opt)
+  // }
 
   // api列表
   static getApiList<T extends Recordable<Partial<Option>>>(commonData: T, list: T): Api {
@@ -299,61 +284,3 @@ export class Request {
     return this.apiList
   }
 }
-// let isLogin = false;
-// 微信登录
-// export async function login(): Promise<void> {
-//   isLogin = true;
-//   return new Promise(async (resolve, reject) => {
-//     // 获取code
-//     const { code } = await Taro.login();
-
-//     // 登录
-//     const { data } = await Taro.request({
-//       url: `${MAIN_HOST}${MAIN_PREFIX}/login`,
-//       data: { js_code: code },
-//     });
-
-//     if (data.code !== 0 || !data.data || !data.data.token) {
-//       reject();
-//       return;
-//     }
-
-//     Taro.setStorageSync('token', data.data.token);
-//     isLogin = false;
-//     resolve();
-//   });
-// }
-
-// export function createOptions (opt: Partial<Option>) {
-//   const {url, data, header, method, timeout, dataType, responseType} = opt
-//   return {
-//     url: isString(url) ? url : null,
-//     data: {...apiCommonParams, ...data},
-//     header: (isObject(header) && header) ? header : {'content-type': 'application/json'},
-//     method: (isString(method) && method) ? method : 'GET',
-//     timeout: isNumber(timeout) ? timeout : 2000,
-//     dataType: (isString(dataType) && dataType) ? dataType : 'json',
-//     responseType: (isString(responseType) && responseType) ? responseType : 'text'
-//   }
-// }
-
-// // 创建请求
-// export function createRequest (opt: Partial<Option> & {loginEnable?: boolean}) {
-//   // const {loginEnable} = opt
-//   // if (isBoolean(loginEnable) && loginEnable) {
-//   //   // this.login()
-//   // } else {
-//   // }
-//   // return new Promise(() => Taro.request(createOptions(opt)))
-//   return 123
-// }
-
-// // api列表
-// export const getApiList = <T extends Recordable<Partial<Option>>> (list: T): T | {} => {
-//   if (!Object.keys(list).length) return {} as T | {}
-//   const apiList: T | {} = {}
-//   Object.keys(list).forEach((key: string) => {
-//     apiList[key] = createRequest(list[key])
-//   })
-//   return apiList as T | {}
-// }

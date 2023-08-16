@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro';
 import type { Model } from '@/store/types'
 
-const commonModel: Model<any> = {
+const common: Model<any> = {
   namespace: 'common',
   state: {
     msg: '测试',
@@ -37,4 +37,4 @@ const commonModel: Model<any> = {
   },
 };
 
-export default commonModel
+export default common

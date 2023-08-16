@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import {FC, useEffect, useRef} from 'react';
 import { AtTabBar } from 'taro-ui';
 import Taro from "@tarojs/taro";
+import store from "@/store";
 import './index.scss';
 
 enum pagePath {
@@ -10,21 +11,31 @@ enum pagePath {
   '/pages/message/index',
   '/pages/mine/index'
 }
-export default function TabBar(props) {
-  const [current, setCurrent] = useState(0)
-  // console.log('NavBar=====>', props);
+const TabBar: FC<Recordable> = (props) => {
+  const {current} = store.getState().tab
   const clickHandle = (index: number) => {
-    console.log('e========>', index, pagePath[index]);
-    // console.log(123, pagePath[index])
     Taro.switchTab({
       url: pagePath[index]
     })
-    setCurrent(index)
+    store.dispatch({
+      type: 'tab/setCurrent',
+      payload: index,
+    })
   }
-  return <AtTabBar
-    fixed
-    tabList={props.tabList}
-    onClick={clickHandle}
-    current={current}
-  />
+  const tabBarRef = useRef(null);
+
+  useEffect(() => {
+    tabBarRef.current && tabBarRef.current.forceUpdate();
+  }, []);
+  return (
+    <AtTabBar
+      ref={tabBarRef}
+      fixed
+      tabList={props.tabList}
+      onClick={clickHandle}
+      current={current}
+    />
+  )
 }
+
+export default TabBar

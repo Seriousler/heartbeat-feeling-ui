@@ -10,14 +10,14 @@ export default function Swiper() {
     indicatorDots
     autoplay>
     <SwiperItem>
-      <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+      <Image mode='aspectFill' src={require('../../assets/images/my.png')}></Image>
       {/*<View className='demo-text-1'>1</View>*/}
     </SwiperItem>
     <SwiperItem>
-      <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+      <Image mode='aspectFill' src={require('../../assets/images/my.png')}></Image>
     </SwiperItem>
     <SwiperItem>
-      <Image mode='aspectFill' src='http://rxa3laqbk.hn-bkt.clouddn.com/800010693.jpg?e=1688485783&token=5n9vhE1M2383tSet6jOBtU0N9W2BDrS4RpdldwWx:OZb1GpvQsrtYgN6nz-lWcs8G8AE='></Image>
+      <Image mode='aspectFill' src={require('../../assets/images/my.png')}></Image>
     </SwiperItem>
   </TaroSwiper>
 }

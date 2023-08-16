@@ -1,7 +1,7 @@
 // 请求地址
 export enum HOST {
   PROD = 'http://xxx',
-  QA = 'http://10.3.120.209:8001',
+  QA = 'http://127.0.0.1:8001',
 }
 export const MAIN_HOST = HOST.QA
 

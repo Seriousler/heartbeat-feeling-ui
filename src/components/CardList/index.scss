@@ -1,0 +1,49 @@
+@import "~taro-ui/dist/style/components/avatar.scss";
+@import "~taro-ui/dist/style/components/tag.scss";
+@import "~taro-ui/dist/style/components/list.scss";
+
+.hf-list {
+  padding: 0 30px;
+  background: $bg-color-base !important;
+}
+.hf-card {
+  //display: flex;
+  // flex-direction: column;
+  //@include fj(row);
+  @include fj(flex-start, row, center);
+  background: #ffffff;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  .hf-card-avatar {
+    @include wh(220px, 220px);
+    .at-avatar {
+      @include wh(100%, 100%);
+    }
+  }
+  .hf-card-content {
+    @include fj(space-between, column, flex-start);
+    padding-left: 30px;
+    .hf-card-content-name {
+      @include fcw($font-size-base, $font-primary, bold);
+    }
+    .hf-card-content-text {
+      @include fcw($font-size-sm, $font-info);
+    }
+    .hf-card-content-tags {
+      .at-tag {
+        @include wh(auto, 40px);
+        @include fcw($font-size-sm, $font-primary);
+        padding: 0 24px;
+        line-height: 40px;
+      }
+    }
+    .hf-card-content-avatar-list {
+      @include fj(flex-start, row, center);
+      .at-avatar {
+        @include wh(80px, 80px);
+        margin-right: 10px;
+      }
+    }
+  }
+}

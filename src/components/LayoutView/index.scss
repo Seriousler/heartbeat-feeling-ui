@@ -1,7 +1,8 @@
 #app {
   width: 100vw;
-  .content {
+  .container {
     position: relative;
+    background: $bg-color-base;
     .drop-down {
       @include wh(100%, auto);
       @include pos(absolute, 0, auto, auto, auto);
